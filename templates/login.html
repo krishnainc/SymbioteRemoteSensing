@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>©Symbiote</title>
+    <link rel="shortcut icon" href="./static/Logo1.png">
+    <link href="https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./static/style1.css">
+</head>
+<body>
+    
+    <div id="content">
+        <a href="/">
+        <img src="./static/Logo1.png" class="ribbon"/>
+        <div>some text...</div>
+        </a>
+    </div>
+   
+
+    <div class="main-container">
+
+
+        <div class="form-container">
+
+            <div class="form-body">
+
+                <h2 class="title">Log in with</h2>
+
+                <div class="social-login">
+                    <ul>
+                        <li class="google"><a href="/duringlogin">Google</a></li>
+                        
+                    </ul>
+                </div><!-- SOCIAL LOGIN -->
+
+                <script>
+                    function VALIDATEE() 
+                    {
+                        var email = 
+                        document.forms["RegForm"]["email"];
+                        var password = 
+                        document.forms["RegForm"]["password"];
+           
+  
+                        if (email.value == "") {
+                           window.alert("Please enter a valid e-mail address.");
+                           email.focus();
+                           return false;
+                        }
+  
+                        if (password.value == "") {
+                           window.alert("Please enter your password");
+                           password.focus();
+                           return false;
+                        }
+  
+                     return true;
+                    }
+                 </script>
+                  
+
+                
+
+                <div class="_or">or</div>
+
+                <form name = "RegForm" action="/login" class="the-form" onsubmit="return VALIDATEE()" method="post">
+
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Enter your email">
+
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="Enter your password">
+
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="remember-me"> Remember me
+                        </label>
+                    </div>
+                    
+
+                    
+                    <input type="submit" value="Log In">
+
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %} 
+                            {% for message in messages %} 
+                                <h3 style="color:white; position:absolute;text-align: center;top:520px;left:315px;" >{{ message }}</h3>
+                            {% endfor %}
+                        {% endif %} 
+                    {% endwith %}
+               
+
+                </form>
+
+            </div><!-- FORM BODY-->
+
+            <div class="form-footer">
+                <div>
+                    <span>Don't have an account?</span> <a href="/signup">Sign Up</a>
+                    <br>
+                    <span>Forgot Password</span> <a href="/forgotlanding">Reset</a>
+                </div>
+            </div><!-- FORM FOOTER -->
+            
+
+            
+
+        </div><!-- FORM CONTAINER -->
+    </div>
+
+</body>
+</html>
